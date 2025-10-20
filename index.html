@@ -427,9 +427,63 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Floating Chat Widget -->
+    <iframe 
+    id="chatbot-frame"
+    src="http://localhost:3000/"
+    style="
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 400px;
+        height: 600px;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 9999;
+    "
+    ></iframe>
+
+    <button 
+    id="chatbot-toggle"
+    style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        font-size: 26px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 10000;
+    "
+    >
+    💬
+    </button>
+
+    <script>
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const iframe = document.getElementById('chatbot-frame');
+
+    toggleBtn.addEventListener('click', () => {
+        const isVisible = iframe.style.display === 'block';
+        iframe.style.display = isVisible ? 'none' : 'block';
+    });
+    </script>
+
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    <!-- CleanSpace Chatbot Widget -->
+    <!-- <script src="widget.js"></script> -->
+
 </body>
 </html>
