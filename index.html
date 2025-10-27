@@ -17,6 +17,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="iframe.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -429,52 +430,26 @@
     </footer>
     
     <!-- Floating Chat Widget -->
-    <iframe 
-    id="chatbot-frame"
-    src="http://localhost:3000/"
-    style="
-        display: none;
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        width: 400px;
-        height: 600px;
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        z-index: 9999;
-    "
-    ></iframe>
+    <div class="chat-widget-container" id="chatbot-container">
+        <iframe 
+            id="chatbot-frame"
+            src="http://localhost:3000"
+            class="chat-widget-iframe"
+        ></iframe>
+    </div>
 
-    <button 
-    id="chatbot-toggle"
-    style="
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        cursor: pointer;
-        font-size: 26px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        z-index: 10000;
-    "
-    >
-    💬
+    <button class="chat-widget-toggle" id="chatbot-toggle">
+        💬
     </button>
 
     <script>
-    const toggleBtn = document.getElementById('chatbot-toggle');
-    const iframe = document.getElementById('chatbot-frame');
+        const toggleBtn = document.getElementById('chatbot-toggle');
+        const container = document.getElementById('chatbot-container');
 
-    toggleBtn.addEventListener('click', () => {
-        const isVisible = iframe.style.display === 'block';
-        iframe.style.display = isVisible ? 'none' : 'block';
-    });
+        toggleBtn.addEventListener('click', () => {
+            const isVisible = container.style.display === 'block';
+            container.style.display = isVisible ? 'none' : 'block';
+        });
     </script>
 
 
